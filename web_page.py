@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 # from st_aggrid import AgGrid
 st.set_page_config(layout="wide")
-df = pd.read_excel(r"C:\Users\Ramanujam\PycharmProjects\Pymatgenexecute\Code without weight filter\fluorideNew.xlsx", sheet_name='Initial')
+df = pd.read_excel(r"https://github.com/RamanujaSrinivasan/Materials-Screening-Webpage/blob/main/fluorideNew.xlsx", sheet_name='Initial')
 
 
 # Title
