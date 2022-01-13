@@ -16,18 +16,27 @@ with st.expander("Data Information"):
 st.markdown("")
 
 
-file_path = st.text_input("Paste your data path here : ")
-os.chdir(file_path)
+# filename = st.text_input('Enter a file path:')
+# df = pd.read_excel(filename)
 
-def file_selector(folder_path='.'):
-    filenames = os.listdir(folder_path)
-    selected_filename = st.selectbox('Select a file', filenames)
-    return os.path.join(folder_path, selected_filename)
+filename = st.text_input('Enter a file path:')
+uploaded_file = st.file_uploader(filename)
+if uploaded_file is not None:
+  df = pd.read_excel(uploaded_file)
 
-filename = file_selector()
-st.write('You selected `%s`' % filename)
 
-df = pd.read_excel(str(file_path)+str(filename), sheet_name='Initial')
+# file_path = st.text_input("Paste your data path here : ")
+# os.chdir(file_path)
+#
+# def file_selector(folder_path='.'):
+#     filenames = os.listdir(folder_path)
+#     selected_filename = st.selectbox('Select a file', filenames)
+#     return os.path.join(folder_path, selected_filename)
+#
+# filename = file_selector()
+# st.write('You selected `%s`' % filename)
+
+# df = pd.read_excel(str(file_path)+str(filename), sheet_name='Initial')
 
 # df = pd.read_excel(r"C:\Users\Ramanujam\PycharmProjects\Pymatgenexecute\Code without weight filter\fluorideNew.xlsx", sheet_name='Initial')
 
@@ -83,6 +92,7 @@ hist_bins = st.slider(label="Histogram bins", min_value=None, max_value=None, va
 hist_fig = px.histogram(df, x=hist_x, nbins=hist_bins)# streamlit run data_explorerst_app.py   ## Terminal
 title=("Histogram of Compounds") #, template = "plotly_white"
 st.write(hist_fig)
+
 
 # import pandas as pd
 # import plotly.express as px
