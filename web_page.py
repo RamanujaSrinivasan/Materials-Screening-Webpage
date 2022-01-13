@@ -1,7 +1,7 @@
 # from __future__ import division  https://github.com/obedsims/batt_dispatch
 import streamlit as st
 import pandas as pd
-from st_aggrid import AgGrid
+# from st_aggrid import AgGrid
 st.set_page_config(layout="wide")
 df = pd.read_excel(r"C:\Users\Ramanujam\PycharmProjects\Pymatgenexecute\Code without weight filter\fluorideNew.xlsx", sheet_name='Initial')
 
@@ -37,6 +37,11 @@ if Unfit_elements == "Exclude":
 if experimental_icsd_id == "Exclude":
     df2 = df[df['Experimental ICSD ID']]
     df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+    
+df2 = df[df['Noble-Gas']]
+df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+df2 = df[df['Gaseous Compounds']]
+df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
 
 df = df[df['Band gap'].between(Band_Gap[0],Band_Gap[1])]
 df = df[df['Gravimetric Capacity'].between(Gravimetric_Capacity[0],Gravimetric_Capacity[1])]
