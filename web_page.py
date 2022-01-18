@@ -39,25 +39,25 @@ if uploaded_file is not None:
     df = pd.read_excel(uploaded_file, header = 0, sheet_name="Initial")
     st.write(df)
 # df.to_excel(os.path.join(SAVE_PATH, filenameq+"Ver1"))
-if F_Block == "Exclude":
-  df2 = df[df['F-Block']]
-  df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
-if Unfit_elements == "Exclude":
-  df2 = df[df['Unfit elements']]
-  df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
-if experimental_icsd_id == "Include":
-  df2 = df[df['Experimental ICSD ID']]
-  df3 = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
-  df = pd.concat([df, df3, df3]).drop_duplicates(keep=False)
+    if F_Block == "Exclude":
+      df2 = df[df['F-Block']]
+      df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+    if Unfit_elements == "Exclude":
+      df2 = df[df['Unfit elements']]
+      df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+    if experimental_icsd_id == "Include":
+      df2 = df[df['Experimental ICSD ID']]
+      df3 = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+      df = pd.concat([df, df3, df3]).drop_duplicates(keep=False)
 
-df2 = df[df['Noble-Gas']]
-df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
-df2 = df[df['Gaseous Compounds']]
-df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+    df2 = df[df['Noble-Gas']]
+    df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
+    df2 = df[df['Gaseous Compounds']]
+    df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
 
-df = df[df['Band gap'].between(Band_Gap[0], Band_Gap[1])]
-df = df[df['Gravimetric Capacity'].between(Gravimetric_Capacity[0], Gravimetric_Capacity[1])]
-param_tech = df[df['Energy above Hull'].between(Energy_above_Hull[0], Energy_above_Hull[1])]
+    df = df[df['Band gap'].between(Band_Gap[0], Band_Gap[1])]
+    df = df[df['Gravimetric Capacity'].between(Gravimetric_Capacity[0], Gravimetric_Capacity[1])]
+    param_tech = df[df['Energy above Hull'].between(Energy_above_Hull[0], Energy_above_Hull[1])]
 
 st.write("Number of compounds screened : ", len(param_tech))
 with st.expander("Screening info"):
