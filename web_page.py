@@ -30,9 +30,9 @@ experimental_icsd_id = st.sidebar.selectbox("Experimental compounds (False = Exp
 # df = pd.read_excel(filename)
 #
 SAVE_PATH = os.path.join(os.getcwd(), 'Downloads')
-filepath = st.text_input('Enter a file path:')
-filenameq = st.text_input('Enter file name:')
-filename = filepath + "\\" + filenameq
+# filepath = st.text_input('Enter a file path:')
+# filenameq = st.text_input('Enter file name:')
+# filename = filepath + "\\" + filenameq
 # uploaded_file = st.file_uploader(filename) #
 uploaded_file = st.file_uploader("Chosse a file") #
 if uploaded_file is not None:
