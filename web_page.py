@@ -33,11 +33,12 @@ SAVE_PATH = os.path.join(os.getcwd(), 'Downloads')
 filepath = st.text_input('Enter a file path:')
 filenameq = st.text_input('Enter file name:')
 filename = filepath + "\\" + filenameq
-uploaded_file = st.file_uploader(filename) #
-# if uploaded_file is not None:
-df = pd.read_excel(filename)
-st.write(df)
-df.to_excel(os.path.join(SAVE_PATH, filenameq+"Ver1"))
+# uploaded_file = st.file_uploader(filename) #
+uploaded_file = st.file_uploader("Chosse a file") #
+if uploaded_file is not None:
+    df = pd.read_excel(filename, header = 0)
+    st.write(df)
+# df.to_excel(os.path.join(SAVE_PATH, filenameq+"Ver1"))
 if F_Block == "Exclude":
   df2 = df[df['F-Block']]
   df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
