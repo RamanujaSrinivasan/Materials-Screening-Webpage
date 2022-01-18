@@ -1,7 +1,6 @@
 # from __future__ import division  https://github.com/obedsims/batt_dispatch
 import streamlit as st
 import pandas as pd
-import xlrd
 import os
 # from st_aggrid import AgGrid
 st.set_page_config(layout="wide")
@@ -34,6 +33,7 @@ filename = st.text_input('Enter a file path:')
 uploaded_file = st.file_uploader(filename) #
 if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
+    st.write(df)
     if F_Block == "Exclude":
       df2 = df[df['F-Block']]
       df = pd.concat([df, df2, df2]).drop_duplicates(keep=False)
