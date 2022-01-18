@@ -32,7 +32,7 @@ experimental_icsd_id = st.sidebar.selectbox("Experimental compounds (False = Exp
 filename = st.text_input('Enter a file path:')
 uploaded_file = st.file_uploader(filename) #
 if uploaded_file is not None:
-    df = pd.read_excel(io=uploaded_file, engine= "openpyxl", sheet_name= "Initial", nrows=10695)
+    df = pd.read_excel(io=uploaded_file, header = 0, engine= "openpyxl", sheet_name= "Initial", nrows=10696)
     st.write(df)
     if F_Block == "Exclude":
       df2 = df[df['F-Block']]
