@@ -1,7 +1,7 @@
 # from __future__ import division  https://github.com/obedsims/batt_dispatch
 import streamlit as st
 import pandas as pd
-from xlrd import *
+import xlrd
 import os
 # from st_aggrid import AgGrid
 st.set_page_config(layout="wide")
