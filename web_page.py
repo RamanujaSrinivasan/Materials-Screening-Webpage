@@ -30,7 +30,7 @@ experimental_icsd_id = st.sidebar.selectbox("Experimental compounds (False = Exp
 # df = pd.read_excel(filename)
 
 filename = st.text_input('Enter a file path:')
-uploaded_file = st.file_uploader(filename, engine="openpyxl") #
+uploaded_file = st.file_uploader(filename) #
 if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
     if F_Block == "Exclude":
